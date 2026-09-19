@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/github/license/13306518212/ai-platform-study-system-showcase)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)](requirements.txt)
 [![JupyterLab](https://img.shields.io/badge/JupyterLab-4%2B-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![公开版自动检查](https://github.com/13306518212/ai-platform-study-system-showcase/actions/workflows/validate.yml/badge.svg)](https://github.com/13306518212/ai-platform-study-system-showcase/actions/workflows/validate.yml)
+[![在线入口](https://img.shields.io/website?url=https%3A%2F%2F13306518212.github.io%2Fai-platform-study-system-showcase%2Findex.html)](https://13306518212.github.io/ai-platform-study-system-showcase/index.html)
 
 项目标识：`ai-platform-study-system-showcase`
 
@@ -12,6 +14,20 @@
 如需使用包含全量 70 道实操题的完整训练版本，请阅读 [Issue #1：如何获取 Private 完整训练仓库](https://github.com/13306518212/ai-platform-study-system-showcase/issues/1)，按说明提交访问申请；授权后即可获取 Private 仓库的完整题库和训练文件。
 
 英文说明（辅助）：[README.en.md](README.en.md) · 在线入口：[GitHub Pages](https://13306518212.github.io/ai-platform-study-system-showcase/index.html)
+
+
+## 内容导航
+
+- [重要提醒](#-重要提醒请先阅读-)
+- [项目定位与适用对象](#项目定位与适用对象)
+- [功能](#功能)
+- [快速开始](#快速开始)
+- [公开版实操题库](#公开版实操题库)
+- [系统截图](#系统截图)
+- [反馈与完整仓库申请](#反馈与完整仓库申请)
+- [许可证与内容说明](#许可证与内容说明)
+
+[申请完整 70 道实操题访问权限 → Issue #1](https://github.com/13306518212/ai-platform-study-system-showcase/issues/1)
 
 ## <span style="color:#b91c1c"><strong><u>⚠️ 重要提醒（请先阅读） ⚠️</u></strong></span>
 
@@ -23,9 +39,18 @@
 >
 > 建议先说明代码要解决的问题，再理解输入、处理流程、返回值、异常分支和边界条件；随后逐步减少对 Tab 补全、提示和参考答案的依赖，进行独立默写、运行验证和限时练习。
 
-## 项目定位
+## 项目定位与适用对象
 
-系统面向“人工智能工程技术人员（人工智能平台产品实现-初级）”学习场景，重点覆盖：
+系统面向“人工智能工程技术人员（人工智能平台产品实现-初级）”学习场景，适合：
+
+- 正在准备相关理论或实操考试的学习者；
+- 需要用 Python、Pandas、机器学习和系统运维示例进行复习的学习者；
+- 希望在本地 JupyterLab 中练习代码填空、运行验证和错题复测的学习者；
+- 需要中文优先、可离线使用学习材料的个人或小型学习小组。
+
+本项目不提供官方报名、在线监考、在线多人协作或官方评分服务；题目、解析和状态记录只反映当前本地练习表现。
+
+重点覆盖：
 
 - Python 核心语法、函数、异常、面向对象和经典算法；
 - Pandas / NumPy 数据读写、清洗、筛选和聚合；
@@ -50,19 +75,19 @@
 
 ### 理论学习助手
 
-![理论学习助手](docs/screenshots/theory-assistant.png)
+[![理论学习助手](docs/screenshots/theory-assistant.png)](docs/screenshots/theory-assistant.png)
 
 ### JupyterLab 实操训练总览
 
-![JupyterLab 实操训练总览](docs/screenshots/practical-jupyterlab.png)
+[![JupyterLab 实操训练总览](docs/screenshots/practical-jupyterlab.png)](docs/screenshots/practical-jupyterlab.png)
 
 ### 代码注释与学习提示
 
-![代码注释与学习提示](docs/screenshots/practical-commented-code.png)
+[![代码注释与学习提示](docs/screenshots/practical-commented-code.png)](docs/screenshots/practical-commented-code.png)
 
 ### 填空提示与原生候选
 
-![填空提示与原生候选](docs/screenshots/practical-fill-hints.png)
+[![填空提示与原生候选](docs/screenshots/practical-fill-hints.png)](docs/screenshots/practical-fill-hints.png)
 
 ## 快速开始
 
@@ -280,15 +305,16 @@ JupyterLab 启动脚本只监听本机，免密码和 token，不提供局域网
 └── README.md
 ```
 
-## 反馈与参与
+## 反馈与完整仓库申请
 
 欢迎使用中文提交：
 
 - [问题反馈](https://github.com/13306518212/ai-platform-study-system-showcase/issues/new?template=bug_report.md)
 - [题库勘误](https://github.com/13306518212/ai-platform-study-system-showcase/issues/new?template=question_correction.md)
 - [功能建议](https://github.com/13306518212/ai-platform-study-system-showcase/issues/new?template=feature_request.md)
+- [申请完整 70 道实操题访问权限](https://github.com/13306518212/ai-platform-study-system-showcase/issues/1)
 
-提交前请删除个人记录、Token、API 密钥和本地隐私路径。
+申请完整版本时，只需提供 GitHub 用户名、使用目的和基本运行环境。请不要在公开 Issue 中提交密码、Token、答题记录、个人路径或其他敏感信息。授权和下载方式详见 Issue #1。
 
 ## Private 完整训练仓库
 
@@ -303,11 +329,11 @@ JupyterLab 启动脚本只监听本机，免密码和 token，不提供局域网
 
 ## 发布与引用
 
-- 当前版本：[v1.0.0 Release](https://github.com/13306518212/ai-platform-study-system-showcase/releases/tag/v1.0.0)
+- 当前版本：[v1.0.1 文档修订 Release](https://github.com/13306518212/ai-platform-study-system-showcase/releases/tag/v1.0.1)
 - 下载时建议同时保存 `SHA256SUMS.txt` 并进行校验。
 - 引用信息见 [`CITATION.cff`](CITATION.cff)。
 - 更新记录见 [`CHANGELOG.md`](CHANGELOG.md)。
 
 ## 版本状态
 
-本公开版以 v1.0.0 作为稳定封版版本。后续如需增加题目或功能，将通过新的版本和 Release 管理，不覆盖当前封版内容。
+v1.0.0 是功能封版版本；v1.0.1 仅对 README、展示入口和发布说明进行文档修订，不改变题库、判分和运行逻辑。后续如需增加题目或功能，将通过新的版本和 Release 管理。

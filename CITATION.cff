@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "如果本项目对你的学习或研究有帮助，欢迎引用本项目。"
 type: software
 title: "人工智能平台产品实现（初级）学习系统公开版"
-version: "1.0.0"
+version: "1.0.1"
 date-released: "2026-09-19"
 authors:
   - family-names: "王"

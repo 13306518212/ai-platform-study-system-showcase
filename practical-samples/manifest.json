@@ -1,0 +1,32 @@
+{
+  "description": "公开展示用实操样题；不含答案、原始完整代码和判分逻辑。",
+  "selection": "固定随机种子抽样，排除 origin=2026 的仿真题。",
+  "seed": 20260919,
+  "quota": {
+    "python": 5,
+    "pandas": 3,
+    "ml": 1,
+    "ops": 4
+  },
+  "counts": {
+    "python": 5,
+    "pandas": 3,
+    "ml": 1,
+    "ops": 4
+  },
+  "questionIds": [
+    "cell-33",
+    "cell-10",
+    "cell-52",
+    "cell-38",
+    "cell-12",
+    "extra-bfill",
+    "cell-68",
+    "cell-70",
+    "cell-83",
+    "cell-90",
+    "cell-92",
+    "cell-104",
+    "extra-post"
+  ]
+}

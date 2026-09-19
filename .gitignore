@@ -1,0 +1,11 @@
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Local editor files
+.vscode/
+.idea/
+
+# Local generated data
+*.log
+*.jsonl

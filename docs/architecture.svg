@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="350" viewBox="0 0 1100 350" role="img" aria-labelledby="title desc">
+  <title id="title">人工智能平台产品实现（初级）学习系统架构</title>
+  <desc id="desc">学习导航页连接理论学习助手和 JupyterLab 实操训练，实操训练通过本地 Python 模块完成校验和学习记录。</desc>
+  <defs>
+    <linearGradient id="nav" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="theory" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#0d9488"/>
+    </linearGradient>
+    <linearGradient id="practice" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#9333ea"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0f172a" flood-opacity=".14"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#64748b"/>
+    </marker>
+    <style>
+      .box { stroke: #fff; stroke-width: 2; filter: url(#shadow); }
+      .title { font: 700 22px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #fff; }
+      .label { font: 500 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #fff; }
+      .small { font: 500 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #334155; }
+      .line { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1100" height="350" rx="22" fill="#f8fafc"/>
+  <text x="550" y="38" text-anchor="middle" class="small" style="font-weight:700;font-size:18px;fill:#0f172a">本地学习系统：理论理解 → 实操填空 → JupyterLab 验证</text>
+
+  <g transform="translate(55 105)">
+    <rect width="250" height="135" rx="18" fill="url(#nav)" class="box"/>
+    <text x="125" y="45" text-anchor="middle" class="title">学习导航页</text>
+    <text x="125" y="76" text-anchor="middle" class="label">统一入口 · 快速跳转</text>
+    <text x="125" y="101" text-anchor="middle" class="label">打开理论与实操系统</text>
+  </g>
+
+  <g transform="translate(425 75)">
+    <rect width="270" height="195" rx="18" fill="url(#theory)" class="box"/>
+    <text x="135" y="48" text-anchor="middle" class="title">理论学习助手</text>
+    <text x="135" y="83" text-anchor="middle" class="label">知识梳理 · 重点题目</text>
+    <text x="135" y="110" text-anchor="middle" class="label">真题模式 · 复习导航</text>
+    <text x="135" y="154" text-anchor="middle" class="label">↔ 进入实操训练</text>
+  </g>
+
+  <g transform="translate(815 75)">
+    <rect width="230" height="195" rx="18" fill="url(#practice)" class="box"/>
+    <text x="115" y="48" text-anchor="middle" class="title">JupyterLab 实操</text>
+    <text x="115" y="83" text-anchor="middle" class="label">70 道代码填空题</text>
+    <text x="115" y="110" text-anchor="middle" class="label">Tab 补全 · 运行验证</text>
+    <text x="115" y="137" text-anchor="middle" class="label">错题复习 · 模拟考试</text>
+    <text x="115" y="170" text-anchor="middle" class="label">↔ 返回理论学习</text>
+  </g>
+
+  <path d="M305 173H415" class="line"/>
+  <path d="M695 173H805" class="line"/>
+  <text x="360" y="157" text-anchor="middle" class="small">打开理论</text>
+  <text x="750" y="157" text-anchor="middle" class="small">进入实操</text>
+  <text x="550" y="315" text-anchor="middle" class="small">所有数据默认保存在本地；题库、判分和学习记录由 V1.0 实操系统负责</text>
+</svg>

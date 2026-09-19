@@ -4177,5 +4177,13 @@
     // 刷新或意外关闭页面后，优先恢复尚未交卷的模拟考试并继续原倒计时。
     buildQuiz(studyState.activeExam ? 'exam' : 'practice');
   </script>
+<script>
+  // 在线页面跳到公开版实操说明；本地打开时继续跳转到本机 JupyterLab。
+  const practicalLink = document.getElementById('practicalBtn');
+  if (practicalLink && window.location.protocol !== 'file:') {
+    practicalLink.href = 'https://github.com/13306518212/ai-platform-study-system-showcase#启动实操训练';
+    practicalLink.textContent = '查看实操启动说明';
+  }
+</script>
 </body>
 </html>

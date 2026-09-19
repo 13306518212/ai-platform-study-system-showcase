@@ -1,0 +1,47 @@
+name: 公开版自动检查
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate Notebook JSON
+        run: python -m json.tool practical/实操填空模拟考试.ipynb >/dev/null
+
+      - name: Compile runtime Python files
+        run: python -m py_compile practical/notebook_app.py practical/start_jupyter.py
+
+      - name: Verify public question bank and real judge
+        run: |
+          python - <<'PY'
+          import ast
+          import hashlib
+          import json
+          from pathlib import Path
+
+          path = Path('practical/questions.json')
+          bank = json.loads(path.read_text(encoding='utf-8'))
+          assert len(bank) == 13, len(bank)
+          counts = {'python': 5, 'pandas': 3, 'ml': 1, 'ops': 4}
+          assert {c: sum(q['category'] == c for q in bank) for c in counts} == counts
+          assert all(q.get('origin') != '2026' for q in bank)
+          for question in bank:
+              original = question['original']
+              assert hashlib.sha256(original.encode()).hexdigest() == question['sourceHash'], question['id']
+              ast.parse(original)
+              assert question['blanks'], question['id']
+          print(f'validated {len(bank)} questions')
+          PY

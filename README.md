@@ -9,7 +9,7 @@
 
 这是面向中国大陆用户的本地学习系统，帮助学习者完成“理论理解 → 代码填空 → JupyterLab 运行验证 → 错题复习”的完整学习闭环。公开版包含完整理论学习助手，以及一套题量精简但功能完整的 JupyterLab 实操训练。
 
-英文说明（辅助）：[README.en.md](README.en.md) · 在线入口：[GitHub Pages](https://13306518212.github.io/ai-platform-study-system-showcase/)
+英文说明（辅助）：[README.en.md](README.en.md) · 在线入口：[GitHub Pages](https://13306518212.github.io/ai-platform-study-system-showcase/index.html)
 
 ## <span style="color:#b91c1c"><strong><u>⚠️ 重要提醒（请先阅读） ⚠️</u></strong></span>
 

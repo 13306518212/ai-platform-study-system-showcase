@@ -4,6 +4,8 @@
     "category": "python",
     "title": "字典遍历与 f-string 对齐",
     "section": "1.7 字符串操作",
+    "cell": 34,
+    "original": "# ── 产品价格格式化输出 ──────────────────────────────────────────────────\nproducts = {\n    'wireless mouse':      129.9,\n    'mechanical keyboard': 359.0,\n    'usb hub':              89.99,\n}\n\n# {:<25} 左对齐占25字符，{:>10} 右对齐占10字符（对齐列数据）\nprint(\"=\" * 45)\nprint(f\"{'产品名称':<25} {'价格':>10}\")\nprint(\"-\" * 45)\n\nfor name, price in products.items():\n    # name.upper() 转大写；¥{price:>9.2f} 右对齐保留2位小数\n    print(f\"{name.upper():<25} ¥{price:>9.2f}\")\n\nprint(\"=\" * 45)",
     "masked": "# ── 产品价格格式化输出 ──────────────────────────────────────────────────\nproducts = {\n    'wireless mouse':      129.9,\n    'mechanical keyboard': 359.0,\n    'usb hub':              89.99,\n}\n\n# {:<25} 左对齐占25字符，{:>10} 右对齐占10字符（对齐列数据）\nprint(\"=\" * 45)\nprint(f\"{'产品名称':<25} {'价格':>10}\")\nprint(\"-\" * 45)\n\nfor name, price in products.{{1}}():\n    # name.upper() 转大写；¥{price:>9.2f} 右对齐保留2位小数\n    print(f\"{name.{{2}}(){{3}}} ¥{price:{{4}}}\")\n\nprint(\"=\" * 45)",
     "lines": [
       {
@@ -82,17 +84,45 @@
         "text": "print(\"=\" * 45)"
       }
     ],
-    "blankCount": 4,
+    "blanks": [
+      {
+        "answers": [
+          "items"
+        ],
+        "hint": "同时遍历产品名和价格。",
+        "why": "items 返回键值对。",
+        "line": 13
+      },
+      {
+        "answers": [
+          "upper"
+        ],
+        "hint": "把产品名称转为大写。",
+        "why": "upper 返回大写新字符串。",
+        "line": 15
+      },
+      {
+        "answers": [
+          ":<25"
+        ],
+        "hint": "左对齐并占 25 个字符。",
+        "why": "格式说明符控制列宽。",
+        "line": 15
+      },
+      {
+        "answers": [
+          ">9.2f"
+        ],
+        "hint": "右对齐并保留两位小数。",
+        "why": "> 右对齐，9 为宽度，.2f 为精度。",
+        "line": 15
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "0d76faf6fc2c442bba0974da7feebff4e7da653f8969c3ffffdda8306808cdf6",
     "origin": "source",
-    "topics": [
-      "items",
-      "upper",
-      ":<25",
-      ">9.2f"
-    ],
     "learning": {
       "overview": "字典遍历与 f-string 对齐：掌握本题代码中的关键函数、参数和返回值。",
       "flow": "先读输入与变量 → 再看核心调用 → 最后核对输出和异常分支。",
@@ -100,13 +130,21 @@
       "transfer": "尝试替换一个参数，预测输出如何变化，再运行验证。",
       "task": "遍历产品名称与价格的对应关系，输出对齐的价格表。产品名称用大写并左对齐，价格按指定宽度右对齐且保留两位小数。",
       "code_comment": "本段代码用于：字典遍历与 f-string 对齐：掌握本题代码中的关键函数、参数和返回值。。执行顺序：先读输入与变量 → 再看核心调用 → 最后核对输出和异常分支。"
-    }
+    },
+    "topics": [
+      "items",
+      "upper",
+      ":<25",
+      ">9.2f"
+    ]
   },
   {
     "id": "cell-10",
     "category": "python",
     "title": "字典键的安全查找",
     "section": "1.2 函数定义与返回",
+    "cell": 11,
+    "original": "# ── 在字典中安全查找键 ──────────────────────────────────────────────────\ndef find_in_dict(data_dict, key):\n    \"\"\"\n    dict.get(key) 是最简洁的方式：\n      - 键存在 → 返回对应值\n      - 键不存在 → 返回 None（默认值，也可传第二参数自定义）\n    \"\"\"\n    return data_dict.get(key)   # 等价于：return data_dict[key] if key in data_dict else None\n    # data_dict.get(key)  优于 data_dict[key]\n\n# ── 测试数据 ──────────────────────────────────────────────────────────\nstudent = {'name': 'Alice', 'age': 20, 'score': 95}\n\n# 用循环验证多个键，展示存在与不存在两种情况\nfor key in ['name', 'grade', 'score', 'city']:\n    result = find_in_dict(student, key)\n    if result is None:\n        print(f\"键 '{key}' 不存在。\")\n    else:\n        print(f\"键 '{key}' 的值为: {result}\")",
     "masked": "# ── 在字典中安全查找键 ──────────────────────────────────────────────────\n{{1}} find_in_dict(data_dict, key):\n    \"\"\"\n    dict.get(key) 是最简洁的方式：\n      - 键存在 → 返回对应值\n      - 键不存在 → 返回 None（默认值，也可传第二参数自定义）\n    \"\"\"\n    {{2}} data_dict.{{3}}(key)   # 等价于：return data_dict[key] if key in data_dict else None\n    # data_dict.get(key)  优于 data_dict[key]\n\n# ── 测试数据 ──────────────────────────────────────────────────────────\nstudent = {'name': 'Alice', 'age': 20, 'score': 95}\n\n# 用循环验证多个键，展示存在与不存在两种情况\nfor key in ['name', 'grade', 'score', 'city']:\n    result = find_in_dict(student, key)\n    if result {{4}} None:\n        print(f\"键 '{key}' 不存在。\")\n    else:\n        print(f\"键 '{key}' 的值为: {result}\")",
     "lines": [
       {
@@ -183,17 +221,45 @@
         "text": "        print(f\"键 '{key}' 的值为: {result}\")"
       }
     ],
-    "blankCount": 4,
+    "blanks": [
+      {
+        "answers": [
+          "def"
+        ],
+        "hint": "定义函数。",
+        "why": "def 是函数定义关键字。",
+        "line": 2
+      },
+      {
+        "answers": [
+          "return"
+        ],
+        "hint": "返回查找结果。",
+        "why": "return 将结果交给调用者。",
+        "line": 8
+      },
+      {
+        "answers": [
+          "get"
+        ],
+        "hint": "键不存在时默认返回 None。",
+        "why": "dict.get 不会因缺少键而抛出 KeyError。",
+        "line": 8
+      },
+      {
+        "answers": [
+          "is"
+        ],
+        "hint": "按对象身份判断是否为 None。",
+        "why": "is None 是惯用写法。",
+        "line": 17
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "35b3d06647d4584d2207247576f5bb02a64d3334b87f45278a4071623edc8708",
     "origin": "source",
-    "topics": [
-      "def",
-      "return",
-      "get",
-      "is"
-    ],
     "learning": {
       "overview": "字典查找与空值判断，避免不存在的键引发异常。",
       "flow": "调用 get 取值，再用 is None 区分缺少结果。",
@@ -201,13 +267,21 @@
       "transfer": "若字典允许值本身就是 None，怎样区分键不存在与值为 None？",
       "task": "从给定字典安全查找指定键。已有键返回对应值；缺少键时给出未找到的提示，避免直接访问缺失键导致异常。",
       "code_comment": "本段代码用于：字典查找与空值判断，避免不存在的键引发异常。。执行顺序：调用 get 取值，再用 is None 区分缺少结果。"
-    }
+    },
+    "topics": [
+      "def",
+      "return",
+      "get",
+      "is"
+    ]
   },
   {
     "id": "cell-52",
     "category": "python",
     "title": "SEND+MORE=MONEY：排列与剪枝",
     "section": "2.3 穷举法",
+    "cell": 53,
+    "original": "# ── 穷举法：字母数字谜题 SEND + MORE = MONEY ────────────────────────────\nfrom itertools import permutations\n\ndef solve_send_more_money():\n    \"\"\"\n    将 S E N D M O R Y 各替换为不同的0-9数字，使等式 SEND + MORE = MONEY 成立。\n    permutations(range(10), 8) 生成从0-9取8个不同数字的所有排列（约181万种）。\n    首位 S 和 M 不能为 0。\n    \"\"\"\n    for perm in permutations(range(10), 8):\n        s, e, n, d, m, o, r, y = perm\n        if s == 0 or m == 0:\n            continue               # 首位不能为0\n        # 将各字母数字组合成对应的整数\n        SEND  = s*1000 + e*100 + n*10 + d\n        MORE  = m*1000 + o*100 + r*10 + e\n        MONEY = m*10000 + o*1000 + n*100 + e*10 + y\n        if SEND + MORE == MONEY:\n            print(f\"找到解: SEND={SEND}, MORE={MORE}, MONEY={MONEY}\")\n            print(f\"  {SEND} + {MORE} = {MONEY} ✅\")\n            return                 # 找到第一个解即退出（此题解唯一）\n\nsolve_send_more_money()",
     "masked": "# ── 穷举法：字母数字谜题 SEND + MORE = MONEY ────────────────────────────\nfrom itertools import {{1}}\n\ndef solve_send_more_money():\n    \"\"\"\n    将 S E N D M O R Y 各替换为不同的0-9数字，使等式 SEND + MORE = MONEY 成立。\n    permutations(range(10), 8) 生成从0-9取8个不同数字的所有排列（约181万种）。\n    首位 S 和 M 不能为 0。\n    \"\"\"\n    for perm in permutations(range(10), 8):\n        s, e, n, d, m, o, r, y = perm\n        if s {{2}} 0 or m == 0:\n            continue               # 首位不能为0\n        # 将各字母数字组合成对应的整数\n        SEND  = s*{{3}} + e*100 + n*10 + d\n        MORE  = m*1000 + o*100 + r*10 + e\n        MONEY = m*10000 + o*1000 + n*100 + e*10 + y\n        if SEND + MORE {{4}} MONEY:\n            print(f\"找到解: SEND={SEND}, MORE={MORE}, MONEY={MONEY}\")\n            print(f\"  {SEND} + {MORE} = {MONEY} ✅\")\n            {{5}}                 # 找到第一个解即退出（此题解唯一）\n\nsolve_send_more_money()",
     "lines": [
       {
@@ -303,17 +377,53 @@
         "text": "solve_send_more_money()"
       }
     ],
-    "blankCount": 5,
+    "blanks": [
+      {
+        "answers": [
+          "permutations"
+        ],
+        "hint": "生成不同数字的排列。",
+        "why": "从 itertools 导入排列函数。",
+        "line": 2
+      },
+      {
+        "answers": [
+          "=="
+        ],
+        "hint": "判断首位是否为 0。",
+        "why": "首位不能为 0。",
+        "line": 12
+      },
+      {
+        "answers": [
+          "1000"
+        ],
+        "hint": "组合四位数 SEND 的千位权重。",
+        "why": "千位乘 1000。",
+        "line": 15
+      },
+      {
+        "answers": [
+          "=="
+        ],
+        "hint": "验证加法等式。",
+        "why": "SEND + MORE 必须等于 MONEY。",
+        "line": 18
+      },
+      {
+        "answers": [
+          "return"
+        ],
+        "hint": "找到首个解后结束函数。",
+        "why": "题目只有一个解。",
+        "line": 21
+      }
+    ],
     "note": "排列空间较大，原例运行可能需要数秒；填空检查不依赖等待完成。",
     "stdin": "",
     "network": false,
+    "sourceHash": "d535f663f997eb9a0731867d367c1217273beb64584f0bf1abda44172a8d4943",
     "origin": "source",
-    "topics": [
-      "permutations",
-      "==",
-      "1000",
-      "return"
-    ],
     "learning": {
       "overview": "SEND+MORE=MONEY：排列与剪枝：掌握本题代码中的关键函数、参数和返回值。",
       "flow": "先读输入与变量 → 再看核心调用 → 最后核对输出和异常分支。",
@@ -321,13 +431,21 @@
       "transfer": "尝试替换一个参数，预测输出如何变化，再运行验证。",
       "task": "给 SEND、MORE、MONEY 中不同字母分配不同的十进制数字，使加法等式成立。两个首字母不能为零，找到一个满足条件的方案后打印并结束搜索。",
       "code_comment": "本段代码用于：SEND+MORE=MONEY：排列与剪枝：掌握本题代码中的关键函数、参数和返回值。。执行顺序：先读输入与变量 → 再看核心调用 → 最后核对输出和异常分支。"
-    }
+    },
+    "topics": [
+      "permutations",
+      "==",
+      "1000",
+      "return"
+    ]
   },
   {
     "id": "cell-38",
     "category": "python",
     "title": "枚举范围内的完美数",
     "section": "2.1 完美数",
+    "cell": 39,
+    "original": "# ── 枚举法：找出 1~limit 范围内的所有完美数 ──────────────────────────────\ndef find_perfect_numbers(limit):\n    \"\"\"\n    遍历 2~limit，用生成器表达式计算每个数的真因子之和。\n    sum(i for i in range(1, n) if n % i == 0) 是简洁但效率较低的写法\n    （未使用平方根优化），适合演示目的。\n    \"\"\"\n    result = []\n    for n in range(2, limit + 1):\n        s = sum(i for i in range(1, n) if n % i == 0)  # 真因子之和\n        if s == n:\n            result.append(n)\n    return result\n\nlimit    = 10000\nperfects = find_perfect_numbers(limit)\nprint(f\"1 ~ {limit} 内的所有完美数: {perfects}\")",
     "masked": "# ── 枚举法：找出 1~limit 范围内的所有完美数 ──────────────────────────────\ndef find_perfect_numbers(limit):\n    \"\"\"\n    遍历 2~limit，用生成器表达式计算每个数的真因子之和。\n    sum(i for i in range(1, n) if n % i == 0) 是简洁但效率较低的写法\n    （未使用平方根优化），适合演示目的。\n    \"\"\"\n    result = []\n    for n in range(2, {{1}}):\n        s = {{2}}(i for i in range(1, n) if n {{3}} i == 0)  # 真因子之和\n        if s == n:\n            result.{{4}}(n)\n    {{5}} result\n\nlimit    = 10000\nperfects = find_perfect_numbers(limit)\nprint(f\"1 ~ {limit} 内的所有完美数: {perfects}\")",
     "lines": [
       {
@@ -389,18 +507,53 @@
         "text": "print(f\"1 ~ {limit} 内的所有完美数: {perfects}\")"
       }
     ],
-    "blankCount": 5,
+    "blanks": [
+      {
+        "answers": [
+          "limit + 1"
+        ],
+        "hint": "让循环包含 limit。",
+        "why": "range 右端不包含。",
+        "line": 9
+      },
+      {
+        "answers": [
+          "sum"
+        ],
+        "hint": "求所有真因子的和。",
+        "why": "sum 累加生成器产生的因子。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "%"
+        ],
+        "hint": "能整除时余数为零。",
+        "why": "n % i == 0 筛选因子。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "append"
+        ],
+        "hint": "收集满足条件的 n。",
+        "why": "将完美数存进 result 列表。",
+        "line": 12
+      },
+      {
+        "answers": [
+          "return"
+        ],
+        "hint": "返回结果列表。",
+        "why": "返回后调用者得到找到的完美数。",
+        "line": 13
+      }
+    ],
     "note": "原例枚举到 10000，运行可能比平方根优化版慢；系统最多等待 30 秒。",
     "stdin": "",
     "network": false,
+    "sourceHash": "1c8c97a05b5a174942abba23644d469ffc9c8e849b1ca1b275081babc869d5b2",
     "origin": "source",
-    "topics": [
-      "limit + 1",
-      "sum",
-      "%",
-      "append",
-      "return"
-    ],
     "learning": {
       "overview": "枚举候选数，对每个候选累加真因子。",
       "flow": "外层遍历 2 到 limit；内层筛选小于 n 的因子；符合则加入结果。",
@@ -408,13 +561,22 @@
       "transfer": "与平方根版本相比，为什么这个版本更慢？range 为什么不包含 n？",
       "task": "给定上界 limit，枚举从 2 到该上界的整数，找出真因子之和等于自身的数。返回并展示所有满足条件的数，循环应包含上界。",
       "code_comment": "本段代码用于：枚举候选数，对每个候选累加真因子。。执行顺序：外层遍历 2 到 limit；内层筛选小于 n 的因子；符合则加入结果。"
-    }
+    },
+    "topics": [
+      "limit + 1",
+      "sum",
+      "%",
+      "append",
+      "return"
+    ]
   },
   {
     "id": "cell-12",
     "category": "python",
     "title": "完美数：平方根优化",
     "section": "1.3 算法、逻辑与优化",
+    "cell": 13,
+    "original": "# ── 判断完美数（优化版：只遍历到平方根）──────────────────────────────\ndef is_perfect(n):\n    \"\"\"\n    完美数：所有真因子（不含自身）之和 == n。\n    如 28 = 1+2+4+7+14，所以 28 是完美数。\n    优化：利用因子的对称性，只循环到 int(n**0.5)。\n    \"\"\"\n    if n < 2:\n        return False\n\n    factor_sum = 1        # 1 是所有 n>1 的因子，提前计入\n    factors    = [1]\n\n    # 从 2 遍历到 √n（包含）即可找出所有因子对\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:           # i 能整除 n，i 是一个因子\n            factor_sum += i\n            factors.append(i)\n            # 如果 i ≠ n//i，说明配对因子不同（避免重复计入完全平方数的根）\n            if i != n // i:\n                factor_sum += n // i # n=4 i=2 n//i 也是2 说明i是平方根 \n                factors.append(n // i) \n\n    print(f\"{n} 的真因子: {sorted(factors)}，之和: {factor_sum}\")\n    return factor_sum == n\n\n# ── 测试 ──────────────────────────────────────────────────────────────\nprint(f\"28 是完美数吗? {is_perfect(28)}\")\nprint(f\"12 是完美数吗? {is_perfect(12)}\")",
     "masked": "# ── 判断完美数（优化版：只遍历到平方根）──────────────────────────────\ndef is_perfect(n):\n    \"\"\"\n    完美数：所有真因子（不含自身）之和 == n。\n    如 28 = 1+2+4+7+14，所以 28 是完美数。\n    优化：利用因子的对称性，只循环到 int(n**0.5)。\n    \"\"\"\n    if n < 2:\n        return False\n\n    factor_sum = {{1}}        # 1 是所有 n>1 的因子，提前计入\n    factors    = [1]\n\n    # 从 2 遍历到 √n（包含）即可找出所有因子对\n    for i in range(2, {{2}} + 1):\n        if n {{3}} i == 0:           # i 能整除 n，i 是一个因子\n            factor_sum += i\n            factors.append(i)\n            # 如果 i ≠ n//i，说明配对因子不同（避免重复计入完全平方数的根）\n            if i {{4}} n // i:\n                factor_sum += n {{5}} i # n=4 i=2 n//i 也是2 说明i是平方根 \n                factors.append(n // i) \n\n    print(f\"{n} 的真因子: {sorted(factors)}，之和: {factor_sum}\")\n    return factor_sum {{6}} n\n\n# ── 测试 ──────────────────────────────────────────────────────────────\nprint(f\"28 是完美数吗? {is_perfect(28)}\")\nprint(f\"12 是完美数吗? {is_perfect(12)}\")",
     "lines": [
       {
@@ -541,19 +703,61 @@
         "text": "print(f\"12 是完美数吗? {is_perfect(12)}\")"
       }
     ],
-    "blankCount": 6,
+    "blanks": [
+      {
+        "answers": [
+          "1"
+        ],
+        "hint": "先计入真因子 1。",
+        "why": "循环从 2 开始，因此总和初始为 1。",
+        "line": 11
+      },
+      {
+        "answers": [
+          "int(n**0.5)"
+        ],
+        "hint": "取平方根的整数部分。",
+        "why": "n**0.5 求平方根，int 取整数部分；右端 +1 包含该边界。",
+        "line": 15
+      },
+      {
+        "answers": [
+          "%"
+        ],
+        "hint": "判断是否整除。",
+        "why": "余数为 0 表示 i 是因子。",
+        "line": 16
+      },
+      {
+        "answers": [
+          "!="
+        ],
+        "hint": "完全平方数的根不能重复计入。",
+        "why": "两个配对因子不同时才累加第二个。",
+        "line": 20
+      },
+      {
+        "answers": [
+          "//"
+        ],
+        "hint": "取得整数配对因子。",
+        "why": "n // i 是 i 对应的另一个因子。",
+        "line": 21
+      },
+      {
+        "answers": [
+          "=="
+        ],
+        "hint": "比较真因子和与原数。",
+        "why": "相等即为完美数。",
+        "line": 25
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "ac9ff88866b0ac58e0553fb61d2acafd0a8f5dbd14bb701ff34b890cd2f52e51",
     "origin": "source",
-    "topics": [
-      "1",
-      "int(n**0.5)",
-      "%",
-      "!=",
-      "//",
-      "=="
-    ],
     "learning": {
       "overview": "完美数等于除自身外所有正因子的和，因子成对出现。",
       "flow": "先排除边界 → 计入 1 → 遍历至平方根 → 加入配对因子 → 比较总和。",
@@ -561,13 +765,23 @@
       "transfer": "用 36 检查平方根 6 是否重复计入；说明循环上界为什么要加 1。",
       "task": "判断整数是否等于除自身外所有正因子的和，并用因子成对出现的特点把搜索范围缩小到平方根。验证 28 和 12，完全平方数的配对因子不能重复累计。",
       "code_comment": "本段代码用于：完美数等于除自身外所有正因子的和，因子成对出现。。执行顺序：先排除边界 → 计入 1 → 遍历至平方根 → 加入配对因子 → 比较总和。"
-    }
+    },
+    "topics": [
+      "1",
+      "int(n**0.5)",
+      "%",
+      "!=",
+      "//",
+      "=="
+    ]
   },
   {
     "id": "extra-bfill",
     "category": "pandas",
     "title": "补充 · 后向填充与末尾缺失值",
     "section": "按你指定考点新编",
+    "cell": null,
+    "original": "import pandas as pd\nscores = pd.Series([None, 80, None, 90, None])\nfilled = scores.bfill()\nprint(filled.tolist())\nprint(\"仍缺失：\", filled.isna().sum())\ncomplete = filled.fillna(0)\nprint(complete.tolist())",
     "masked": "import pandas as pd\nscores = pd.Series([None, 80, None, 90, None])\nfilled = scores.{{1}}()\nprint(filled.tolist())\nprint(\"仍缺失：\", filled.{{2}}().sum())\ncomplete = filled.{{3}}(0)\nprint(complete.tolist())",
     "lines": [
       {
@@ -619,16 +833,38 @@
         "text": "print(complete.tolist())"
       }
     ],
-    "blankCount": 3,
+    "blanks": [
+      {
+        "answers": [
+          "bfill"
+        ],
+        "hint": "用后一个有效值填充前面的缺失值。",
+        "why": "bfill 使用下一条非缺失值；末尾没有后值，因此仍缺失。",
+        "line": 3
+      },
+      {
+        "answers": [
+          "isna"
+        ],
+        "hint": "逐项判断是否缺失。",
+        "why": "isna 返回布尔值，sum 统计 True 数量。",
+        "line": 5
+      },
+      {
+        "answers": [
+          "fillna"
+        ],
+        "hint": "把剩余缺失值替换为 0。",
+        "why": "fillna(0) 明确指定兜底值。",
+        "line": 6
+      }
+    ],
     "note": "用户指定的补充练习，不属于附件原文。",
     "stdin": "",
     "network": false,
+    "setup": "",
     "origin": "supplement",
-    "topics": [
-      "bfill",
-      "isna",
-      "fillna"
-    ],
+    "sourceHash": "cae2389001cbe745c82d64c3b47b1eac6a3d748a2ee4830dcab550bea99e83f5",
     "learning": {
       "overview": "后向填充沿当前行顺序取后一个有效值，不能凭空产生末尾数据。",
       "flow": "先后向填充 → 检查残留缺失 → 用零兜底。",
@@ -636,13 +872,20 @@
       "transfer": "把 bfill 改为 ffill，手推第一项和最后一项的变化。",
       "task": "给定含缺失值的成绩序列，使用后一个有效成绩补齐前面的空缺，统计还剩多少缺失值，再用零补齐。末尾没有后续成绩时，第一步不能填上该位置。",
       "code_comment": "本段代码用于：后向填充沿当前行顺序取后一个有效值，不能凭空产生末尾数据。。执行顺序：先后向填充 → 检查残留缺失 → 用零兜底。"
-    }
+    },
+    "topics": [
+      "bfill",
+      "isna",
+      "fillna"
+    ]
   },
   {
     "id": "cell-68",
     "category": "pandas",
     "title": "保留原例：查找价格最高的产品",
     "section": "3.3 Pandas：数据操作与选择",
+    "cell": 69,
+    "original": "import pandas as pd\n\ndf = pd.DataFrame({\n    '名称': ['苹果', '笔记本', '耳机', '键盘'],\n    '类别': ['水果', '电子', '电子', '电子'],\n    '价格': [5.5, 6999, 299, 399]\n})\nprint(\"=== 原始数据 ===\"); print(df)\n\n# 删除「类别」列（inplace=False 默认，需要重新赋值）\ndf = df.drop(columns=['类别'])\nprint(\"\\n=== 删除类别列后 ===\"); print(df)\n\n# idxmin() 找到价格列最小值的行索引，loc[] 取出该行\nmin_idx  = df['价格'].idxmax()\ncheapest = df.loc[min_idx]\nprint(f\"\\n=== 价格最高的产品 ===\\n{cheapest}\")",
     "masked": "import pandas as pd\n\ndf = pd.{{1}}({\n    '名称': ['苹果', '笔记本', '耳机', '键盘'],\n    '类别': ['水果', '电子', '电子', '电子'],\n    '价格': [5.5, 6999, 299, 399]\n})\nprint(\"=== 原始数据 ===\"); print(df)\n\n# 删除「类别」列（inplace=False 默认，需要重新赋值）\ndf = df.{{2}}({{3}}=['类别'])\nprint(\"\\n=== 删除类别列后 ===\"); print(df)\n\n# idxmin() 找到价格列最小值的行索引，loc[] 取出该行\nmin_idx  = df['价格'].{{4}}()\ncheapest = df.{{5}}[min_idx]\nprint(f\"\\n=== 价格最高的产品 ===\\n{cheapest}\")",
     "lines": [
       {
@@ -716,18 +959,53 @@
         "text": "print(f\"\\n=== 价格最高的产品 ===\\n{cheapest}\")"
       }
     ],
-    "blankCount": 5,
+    "blanks": [
+      {
+        "answers": [
+          "DataFrame"
+        ],
+        "hint": "创建产品表。",
+        "why": "DataFrame 接收各列的数据。",
+        "line": 3
+      },
+      {
+        "answers": [
+          "drop"
+        ],
+        "hint": "删除类别列。",
+        "why": "本例将返回结果重新赋给 df。",
+        "line": 11
+      },
+      {
+        "answers": [
+          "columns"
+        ],
+        "hint": "指定要删除的是列。",
+        "why": "columns 按列名删除。",
+        "line": 11
+      },
+      {
+        "answers": [
+          "idxmax"
+        ],
+        "hint": "原程序实际查找最高价格。",
+        "why": "原代码调用 idxmax，结果指向笔记本。",
+        "line": 15
+      },
+      {
+        "answers": [
+          "loc"
+        ],
+        "hint": "按标签取得该行。",
+        "why": "loc[min_idx] 使用索引标签。",
+        "line": 16
+      }
+    ],
     "note": "原文件本单元第 14 行注释写 idxmin，变量名为 min_idx/cheapest；但实际代码为 idxmax，输出标题也写“价格最高”。本题保留原代码，不改成最低价题。",
     "stdin": "",
     "network": false,
+    "sourceHash": "16648fc99111a26926feb00c71fc2b85a507284a924b1aa3428751c735cb1a6e",
     "origin": "source",
-    "topics": [
-      "DataFrame",
-      "drop",
-      "columns",
-      "idxmax",
-      "loc"
-    ],
     "learning": {
       "overview": "极值索引的实际含义由调用决定，不能只凭变量名猜测。",
       "flow": "删除类别列 → 实际计算最大值索引 → 按标签取得该行。",
@@ -735,13 +1013,22 @@
       "transfer": "附件注释与变量名指向最低价但调用为最大值；补充最低价题专门练习 idxmin。",
       "task": "从产品表中删除类别列，找到价格最高产品所在的行并输出。本附件部分变量名与注释写最低价，但本题以程序实际要求的最高价为准。",
       "code_comment": "本段代码用于：极值索引的实际含义由调用决定，不能只凭变量名猜测。。执行顺序：删除类别列 → 实际计算最大值索引 → 按标签取得该行。"
-    }
+    },
+    "topics": [
+      "DataFrame",
+      "drop",
+      "columns",
+      "idxmax",
+      "loc"
+    ]
   },
   {
     "id": "cell-70",
     "category": "pandas",
     "title": "部门薪水：分组聚合",
     "section": "3.4 Pandas：分组与聚合",
+    "cell": 71,
+    "original": "import pandas as pd\n\ndf = pd.DataFrame({\n    '部门': ['人事', 'IT', 'IT', '人事', 'IT'],\n    '薪水': [70000, 85000, 92000, 75000, 88000]\n})\n\n# groupby 按「部门」分组，对「薪水」列同时计算：count/mean/max\n# agg() 中的关键字参数：新列名='聚合函数名'\nprint(df.groupby('部门')['薪水'].agg(人数='count', 平均薪水='mean', 最高薪水='max'))",
     "masked": "import pandas as pd\n\ndf = pd.DataFrame({\n    '部门': ['人事', 'IT', 'IT', '人事', 'IT'],\n    '薪水': [70000, 85000, 92000, 75000, 88000]\n})\n\n# groupby 按「部门」分组，对「薪水」列同时计算：count/mean/max\n# agg() 中的关键字参数：新列名='聚合函数名'\nprint(df.{{1}}('部门')['薪水'].{{2}}(人数='{{3}}', 平均薪水='{{4}}', 最高薪水='{{5}}'))",
     "lines": [
       {
@@ -787,18 +1074,53 @@
         "text": "print(df.{{1}}('部门')['薪水'].{{2}}(人数='{{3}}', 平均薪水='{{4}}', 最高薪水='{{5}}'))"
       }
     ],
-    "blankCount": 5,
+    "blanks": [
+      {
+        "answers": [
+          "groupby"
+        ],
+        "hint": "按部门分组。",
+        "why": "相同部门的记录归为一组。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "agg"
+        ],
+        "hint": "同时计算多个指标。",
+        "why": "agg 支持给聚合结果指定新列名。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "count"
+        ],
+        "hint": "统计非缺失记录数量；引号已给出。",
+        "why": "count 计算每组非缺失薪水的数量。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "mean"
+        ],
+        "hint": "求平均薪水；引号已给出。",
+        "why": "mean 计算每组平均值。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "max"
+        ],
+        "hint": "求最高薪水；引号已给出。",
+        "why": "max 取各组最大值。",
+        "line": 10
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "96ef33d336202e84a643468b9e6b5a43ff774cbc4ce1aaaae310d9fa55a3f220",
     "origin": "source",
-    "topics": [
-      "groupby",
-      "agg",
-      "count",
-      "mean",
-      "max"
-    ],
     "learning": {
       "overview": "先分组，再对每组执行多种聚合。",
       "flow": "按部门分组 → 对薪水计算非空计数、均值与最大值 → 输出汇总表。",
@@ -806,13 +1128,22 @@
       "transfer": "count 不计算缺失薪水；若要统计全部记录数，应考虑 size。",
       "task": "按部门整理员工薪水，输出每个部门的有效薪水记录数、平均薪水和最高薪水。每个部门在结果中占一行，缺失薪水不计入有效记录数。",
       "code_comment": "本段代码用于：先分组，再对每组执行多种聚合。。执行顺序：按部门分组 → 对薪水计算非空计数、均值与最大值 → 输出汇总表。"
-    }
+    },
+    "topics": [
+      "groupby",
+      "agg",
+      "count",
+      "mean",
+      "max"
+    ]
   },
   {
     "id": "cell-83",
     "category": "ml",
     "title": "线性回归：训练与预测",
     "section": "4.2 Scikit-learn：模型训练与预测",
+    "cell": 84,
+    "original": "from sklearn.linear_model import LinearRegression\nimport numpy as np\n\n# ── 简单线性回归示例：面积预测房价 ──────────────────────────────────────\n# 训练数据：房屋面积（m²）→ 价格（万元）\nX_train = np.array([[50], [70], [90], [110], [130]])  # 必须是2D数组\ny_train = np.array([45, 63, 81, 99, 117])\n\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)   # 训练：学习 y = w*x + b 的参数\n\n# 打印学到的参数（斜率和截距）\nprint(f\"斜率（w）: {model.coef_[0]:.4f}\")\nprint(f\"截距（b）: {model.intercept_:.4f}\")\n\n# 对新面积进行预测\nX_new = np.array([[100], [150]])\npreds = model.predict(X_new)\nfor area, price in zip(X_new.ravel(), preds):   # ravel() 把2D压平为1D\n    print(f\"面积 {area}m² → 预测价格: {price:.1f} 万元\")",
     "masked": "from sklearn.linear_model import LinearRegression\nimport numpy as np\n\n# ── 简单线性回归示例：面积预测房价 ──────────────────────────────────────\n# 训练数据：房屋面积（m²）→ 价格（万元）\nX_train = np.array([[50], [70], [90], [110], [130]])  # 必须是2D数组\ny_train = np.array([45, 63, 81, 99, 117])\n\nmodel = LinearRegression()\nmodel.{{1}}(X_train, y_train)   # 训练：学习 y = w*x + b 的参数\n\n# 打印学到的参数（斜率和截距）\nprint(f\"斜率（w）: {model.coef_[0]:.4f}\")\nprint(f\"截距（b）: {model.intercept_:.4f}\")\n\n# 对新面积进行预测\nX_new = np.array([[100], [150]])\npreds = model.{{2}}(X_new)\nfor area, price in zip(X_new.{{3}}(), preds):   # ravel() 把2D压平为1D\n    print(f\"面积 {area}m² → 预测价格: {price:.1f} 万元\")",
     "lines": [
       {
@@ -915,16 +1246,37 @@
         "text": "    print(f\"面积 {area}m² → 预测价格: {price:.1f} 万元\")"
       }
     ],
-    "blankCount": 3,
+    "blanks": [
+      {
+        "answers": [
+          "fit"
+        ],
+        "hint": "用训练集学习回归参数。",
+        "why": "fit(X, y) 完成训练。",
+        "line": 10
+      },
+      {
+        "answers": [
+          "predict"
+        ],
+        "hint": "对新样本生成预测值。",
+        "why": "predict 接收特征矩阵。",
+        "line": 18
+      },
+      {
+        "answers": [
+          "ravel"
+        ],
+        "hint": "把二维面积数组压成一维。",
+        "why": "便于和预测值 zip。",
+        "line": 19
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "e4908ea20d4541a44d647c84ab163d2b8cfc9d7660f49e4d20820ec0f0919e62",
     "origin": "source",
-    "topics": [
-      "fit",
-      "predict",
-      "ravel"
-    ],
     "learning": {
       "overview": "线性回归：训练与预测：掌握本题代码中的关键函数、参数和返回值。",
       "flow": "先读输入与变量 → 再看核心调用 → 最后核对输出和异常分支。",
@@ -932,13 +1284,20 @@
       "transfer": "尝试替换一个参数，预测输出如何变化，再运行验证。",
       "task": "用给定房屋面积和价格学习线性关系，输出斜率与截距，再预测面积为 100 和 150 平方米的房价。输入特征保持二维，最后逐项打印面积与预测价格。",
       "code_comment": "本段代码用于：线性回归：训练与预测：掌握本题代码中的关键函数、参数和返回值。。执行顺序：先读输入与变量 → 再看核心调用 → 最后核对输出和异常分支。"
-    }
+    },
+    "topics": [
+      "fit",
+      "predict",
+      "ravel"
+    ]
   },
   {
     "id": "cell-90",
     "category": "ops",
     "title": "将文本文件复制到 backups",
     "section": "5.1 系统、时间与文件操作",
+    "cell": 91,
+    "original": "import os\nimport shutil\n\n# ── 准备测试用的 .txt 文件 ────────────────────────────────────────────\nfor name in ['file1.txt', 'file2.txt', 'notes.txt']:\n    with open(name, 'w', encoding='utf-8') as f:\n        f.write(f\"这是 {name} 的内容\\n\")\n\n# ── 确保 backups 目录存在 ─────────────────────────────────────────────\nbackup_dir = 'backups'\nif not os.path.exists(backup_dir):\n    os.makedirs(backup_dir)\n    print(f\"创建目录: {backup_dir}/\")\nelse:\n    print(f\"目录已存在: {backup_dir}/\")\n\n# ── 找出当前目录所有 .txt 文件并复制 ─────────────────────────────────\n# os.listdir('.') 列出当前目录所有文件名（包括目录）\ntxt_files = [f for f in os.listdir('.') if f.endswith('.txt')]\nprint(f\"找到 {len(txt_files)} 个 .txt 文件: {txt_files}\")\n\nfor filename in txt_files:\n    src  = filename\n    dest = os.path.join(backup_dir, filename)\n    # shutil.copy2：复制文件并保留元数据（时间戳等）\n    shutil.copy2(src, dest)\n    print(f\"  已复制: {src} → {dest}\")\n\nprint(f\"\\nbackups/ 中的文件: {os.listdir(backup_dir)}\")",
     "masked": "import os\nimport shutil\n\n# ── 准备测试用的 .txt 文件 ────────────────────────────────────────────\nfor name in ['file1.txt', 'file2.txt', 'notes.txt']:\n    with open(name, 'w', encoding='utf-8') as f:\n        f.write(f\"这是 {name} 的内容\\n\")\n\n# ── 确保 backups 目录存在 ─────────────────────────────────────────────\nbackup_dir = 'backups'\nif not os.path.exists(backup_dir):\n    os.{{1}}(backup_dir)\n    print(f\"创建目录: {backup_dir}/\")\nelse:\n    print(f\"目录已存在: {backup_dir}/\")\n\n# ── 找出当前目录所有 .txt 文件并复制 ─────────────────────────────────\n# os.listdir('.') 列出当前目录所有文件名（包括目录）\ntxt_files = [f for f in os.{{2}}('.') if f.{{3}}('.txt')]\nprint(f\"找到 {len(txt_files)} 个 .txt 文件: {txt_files}\")\n\nfor filename in txt_files:\n    src  = filename\n    dest = os.path.{{4}}(backup_dir, filename)\n    # shutil.copy2：复制文件并保留元数据（时间戳等）\n    shutil.{{5}}(src, dest)\n    print(f\"  已复制: {src} → {dest}\")\n\nprint(f\"\\nbackups/ 中的文件: {os.listdir(backup_dir)}\")",
     "lines": [
       {
@@ -1067,18 +1426,53 @@
         "text": "print(f\"\\nbackups/ 中的文件: {os.listdir(backup_dir)}\")"
       }
     ],
-    "blankCount": 5,
+    "blanks": [
+      {
+        "answers": [
+          "makedirs"
+        ],
+        "hint": "原例创建备份目录。",
+        "why": "makedirs 用于创建目录。",
+        "line": 12
+      },
+      {
+        "answers": [
+          "listdir"
+        ],
+        "hint": "遍历当前目录条目。",
+        "why": "listdir(\".\") 列出当前工作目录名称。",
+        "line": 19
+      },
+      {
+        "answers": [
+          "endswith"
+        ],
+        "hint": "判断文件名后缀。",
+        "why": "endswith(\".txt\") 筛选后缀为 .txt 的名称。",
+        "line": 19
+      },
+      {
+        "answers": [
+          "join"
+        ],
+        "hint": "拼接目标路径。",
+        "why": "把 backup_dir 和 filename 组合成路径。",
+        "line": 24
+      },
+      {
+        "answers": [
+          "copy2"
+        ],
+        "hint": "原例要求复制并保留元数据。",
+        "why": "copy2 尝试保留时间戳等元数据；copy 不完全等价。",
+        "line": 26
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "a59b687c5df41c8b2496267cb332a0bdb24b382cf2ff746032edf5ea1eb43a48",
     "origin": "source",
-    "topics": [
-      "makedirs",
-      "listdir",
-      "endswith",
-      "join",
-      "copy2"
-    ],
     "learning": {
       "overview": "按扩展名筛选文件并保留元数据地备份。",
       "flow": "准备示例文件与备份目录 → 列举名称 → 筛 .txt → 拼目标路径 → 复制。",
@@ -1086,13 +1480,22 @@
       "transfer": "copy2 与 copy 都复制内容，但元数据保留程度不同；move 是否保留源文件？",
       "task": "从当前目录筛选文本文件并备份到 backups，复制时尽量保留文件元数据。输出备份情况，原位置的文件应继续存在。",
       "code_comment": "本段代码用于：按扩展名筛选文件并保留元数据地备份。。执行顺序：准备示例文件与备份目录 → 列举名称 → 筛 .txt → 拼目标路径 → 复制。"
-    }
+    },
+    "topics": [
+      "makedirs",
+      "listdir",
+      "endswith",
+      "join",
+      "copy2"
+    ]
   },
   {
     "id": "cell-92",
     "category": "ops",
     "title": "JSON 字典写入与读回",
     "section": "5.2 文件内容与 JSON",
+    "cell": 93,
+    "original": "# ['1','2','3']\n# {'a':1,'b':2}\n# ''\n\nimport json\n\n# ── 构造要序列化的 Python 字典 ────────────────────────────────────────\nuser_data = {'id': 'user_001', 'name': 'Alice', 'scores': {'math': 95}}\n\n# ── 写入 JSON 文件 ────────────────────────────────────────────────────\n# indent=4：每层缩进4个空格（美化输出）\n# ensure_ascii=False：允许非 ASCII 字符（如中文）直接写入，不转义\nwith open('user_profile.json', 'w', encoding='utf-8') as f:\n    json.dump(user_data, f, indent=4, ensure_ascii=False)\n\n# ── 读取 JSON 文件 ────────────────────────────────────────────────────\nwith open('user_profile.json', 'r', encoding='utf-8') as f:\n    loaded = json.load(f)    # 自动将 JSON 解析为 Python 字典\n\nprint(f\"用户名: {loaded['name']}，数学: {loaded['scores']['math']}\")",
     "masked": "# ['1','2','3']\n# {'a':1,'b':2}\n# ''\n\nimport json\n\n# ── 构造要序列化的 Python 字典 ────────────────────────────────────────\nuser_data = {'id': 'user_001', 'name': 'Alice', 'scores': {'math': 95}}\n\n# ── 写入 JSON 文件 ────────────────────────────────────────────────────\n# indent=4：每层缩进4个空格（美化输出）\n# ensure_ascii=False：允许非 ASCII 字符（如中文）直接写入，不转义\nwith open('user_profile.json', {{1}}, encoding='utf-8') as f:\n    json.{{2}}(user_data, f, indent=4, ensure_ascii={{3}})\n\n# ── 读取 JSON 文件 ────────────────────────────────────────────────────\nwith open('user_profile.json', 'r', encoding='utf-8') as f:\n    loaded = json.{{4}}(f)    # 自动将 JSON 解析为 Python 字典\n\nprint(f\"用户名: {loaded['name']}，数学: {{{5}}}\")",
     "lines": [
       {
@@ -1185,18 +1588,53 @@
         "text": "print(f\"用户名: {loaded['name']}，数学: {{{5}}}\")"
       }
     ],
-    "blankCount": 5,
+    "blanks": [
+      {
+        "answers": [
+          "'w'"
+        ],
+        "hint": "写入文件的模式，需包含引号。",
+        "why": "w 用于写入，已有文件会覆盖。",
+        "line": 13
+      },
+      {
+        "answers": [
+          "dump"
+        ],
+        "hint": "向文件对象序列化。",
+        "why": "dump(obj, f) 把对象写入文件。",
+        "line": 14
+      },
+      {
+        "answers": [
+          "False"
+        ],
+        "hint": "关闭中文 ASCII 转义。",
+        "why": "ensure_ascii=False 保留非 ASCII 字符；UTF-8 编码另由 open 指定。",
+        "line": 14
+      },
+      {
+        "answers": [
+          "load"
+        ],
+        "hint": "从文件读取 JSON 对象。",
+        "why": "load(f) 还原 Python 字典等对象。",
+        "line": 18
+      },
+      {
+        "answers": [
+          "loaded['scores']['math']"
+        ],
+        "hint": "读取嵌套字典中的数学成绩。",
+        "why": "先取 scores 字典，再取 math 的值。",
+        "line": 20
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "4d2a1189ae0b6737c33f2ba9b7e0ab738a3b42b0925321f041bfeb9651b6d162",
     "origin": "source",
-    "topics": [
-      "'w'",
-      "dump",
-      "False",
-      "load",
-      "loaded['scores']['math']"
-    ],
     "learning": {
       "overview": "JSON 在文件与 Python 对象之间转换，嵌套字典逐层访问。",
       "flow": "写入 UTF-8 JSON → 从文件读回 → 两级键读取数学成绩。",
@@ -1204,13 +1642,22 @@
       "transfer": "dump/load 与 dumps/loads 的参数分别是文件还是字符串？",
       "task": "把包含中文与嵌套成绩的字典写入 JSON 文件，再读回并取得数学成绩。文件使用 UTF-8，中文保留可读形式。",
       "code_comment": "本段代码用于：JSON 在文件与 Python 对象之间转换，嵌套字典逐层访问。。执行顺序：写入 UTF-8 JSON → 从文件读回 → 两级键读取数学成绩。"
-    }
+    },
+    "topics": [
+      "'w'",
+      "dump",
+      "False",
+      "load",
+      "loaded['scores']['math']"
+    ]
   },
   {
     "id": "cell-104",
     "category": "ops",
     "title": "psutil：CPU 与内存信息",
     "section": "5.5 系统监控：psutil",
+    "cell": 105,
+    "original": "import psutil\n\n# ── CPU 信息 ──────────────────────────────────────────────────────────\n# cpu_percent(interval=1)：采样1秒后返回使用率（避免瞬时值不准）\ncpu_usage   = psutil.cpu_percent(interval=1)\ncpu_logical = psutil.cpu_count(logical=True)   # 逻辑核心数（含超线程）\ncpu_phys    = psutil.cpu_count(logical=False)  # 物理核心数\n\nprint(\"=== CPU 信息 ===\")\nprint(f\"使用率:   {cpu_usage}%\")\nprint(f\"逻辑核心: {cpu_logical} 个\")\nprint(f\"物理核心: {cpu_phys} 个\")\n\n# percpu=True：返回每个逻辑核心的独立使用率\nper_core = psutil.cpu_percent(interval=1, percpu=True)\nfor i, usage in enumerate(per_core):\n    # 用字符画进度条：每10%一格，共10格\n    bar = '█' * int(usage // 10) + '░' * (10 - int(usage // 10))\n    print(f\"  核心{i}: [{bar}] {usage}%\")\n\n# ── 内存信息 ──────────────────────────────────────────────────────────\nmem = psutil.virtual_memory()\nprint(\"\\n=== 内存信息 ===\")\nprint(f\"总内存:   {mem.total    / 1024**3:.2f} GB\")   # Bytes → GB\nprint(f\"已使用:   {mem.used     / 1024**3:.2f} GB\")\nprint(f\"空闲:     {mem.available/ 1024**3:.2f} GB\")\nprint(f\"使用率:   {mem.percent}%\")",
     "masked": "import psutil\n\n# ── CPU 信息 ──────────────────────────────────────────────────────────\n# cpu_percent(interval=1)：采样1秒后返回使用率（避免瞬时值不准）\ncpu_usage   = psutil.{{1}}(interval=1)\ncpu_logical = psutil.cpu_count(logical=True)   # 逻辑核心数（含超线程）\ncpu_phys    = psutil.cpu_count(logical=False)  # 物理核心数\n\nprint(\"=== CPU 信息 ===\")\nprint(f\"使用率:   {cpu_usage}%\")\nprint(f\"逻辑核心: {cpu_logical} 个\")\nprint(f\"物理核心: {cpu_phys} 个\")\n\n# percpu=True：返回每个逻辑核心的独立使用率\nper_core = psutil.cpu_percent(interval=1, percpu=True)\nfor i, usage in enumerate(per_core):\n    # 用字符画进度条：每10%一格，共10格\n    bar = '█' * int(usage // 10) + '░' * (10 - int(usage // 10))\n    print(f\"  核心{i}: [{bar}] {usage}%\")\n\n# ── 内存信息 ──────────────────────────────────────────────────────────\nmem = psutil.{{2}}()\nprint(\"\\n=== 内存信息 ===\")\nprint(f\"总内存:   {mem.total    / {{3}}:{{4}}} GB\")   # Bytes → GB\nprint(f\"已使用:   {mem.{{5}}     / 1024**3:.2f} GB\")\nprint(f\"空闲:     {mem.available/ 1024**3:.2f} GB\")\nprint(f\"使用率:   {mem.{{6}}}%\")",
     "lines": [
       {
@@ -1346,19 +1793,64 @@
         "text": "print(f\"使用率:   {mem.{{6}}}%\")"
       }
     ],
-    "blankCount": 6,
+    "blanks": [
+      {
+        "answers": [
+          "cpu_percent"
+        ],
+        "hint": "采样 CPU 使用率。",
+        "why": "interval=1 在一秒采样窗口内计算使用率。",
+        "line": 5
+      },
+      {
+        "answers": [
+          "virtual_memory"
+        ],
+        "hint": "取得内存信息对象。",
+        "why": "返回 total、used、available、percent 等字段。",
+        "line": 22
+      },
+      {
+        "answers": [
+          "1024**3",
+          "(1024**3)",
+          "1073741824",
+          "(1024*1024*1024)"
+        ],
+        "hint": "将字节按原例口径换算。",
+        "why": "除以 1024³；严格单位为 GiB，原例标 GB。",
+        "line": 24
+      },
+      {
+        "answers": [
+          ".2f"
+        ],
+        "hint": "原例保留两位小数。",
+        "why": "原 notebook 为 .2f，截图的 .1f 不混入本题。",
+        "line": 24
+      },
+      {
+        "answers": [
+          "used"
+        ],
+        "hint": "已用内存字节数。",
+        "why": "used 是属性，不加 ()。",
+        "line": 25
+      },
+      {
+        "answers": [
+          "percent"
+        ],
+        "hint": "内存使用百分比。",
+        "why": "percent 已是百分数，不再乘以 100。",
+        "line": 27
+      }
+    ],
     "note": "",
     "stdin": "",
     "network": false,
+    "sourceHash": "26fb1d7cf6467d2bc4aeac5d99476203d9de8043badb06f0e10cc3b4e6384545",
     "origin": "source",
-    "topics": [
-      "cpu_percent",
-      "virtual_memory",
-      "1024**3",
-      ".2f",
-      "used",
-      "percent"
-    ],
     "learning": {
       "overview": "psutil 返回实时采样信息，属性访问和单位换算容易混淆。",
       "flow": "采样 CPU → 获取内存对象 → 读取总量、已用、百分比 → 格式化展示。",
@@ -1366,13 +1858,23 @@
       "transfer": "percent 已经是百分数；used 是属性，virtual_memory 是函数。",
       "task": "采样本机 CPU 使用率，读取总内存、已用内存和使用百分比，并按原例精度打印。容量按 1024 的三次方换算，实时读数会随系统状态变化。",
       "code_comment": "本段代码用于：psutil 返回实时采样信息，属性访问和单位换算容易混淆。。执行顺序：采样 CPU → 获取内存对象 → 读取总量、已用、百分比 → 格式化展示。"
-    }
+    },
+    "topics": [
+      "cpu_percent",
+      "virtual_memory",
+      "1024**3",
+      ".2f",
+      "used",
+      "percent"
+    ]
   },
   {
     "id": "extra-post",
     "category": "ops",
     "title": "补充 · POST 提交 JSON 与响应验证",
     "section": "按你指定考点新编",
+    "cell": null,
+    "original": "import os\nimport requests\nurl = os.environ[\"EXAM_POST_URL\"]\npayload = {\"name\": \"小明\", \"score\": 90}\ntry:\n    response = requests.post(url, json=payload, timeout=5)\n    response.raise_for_status()\n    print(\"状态码：\", response.status_code)\n    result = response.json()\n    print(\"收到数据：\", result[\"received\"])\nexcept requests.RequestException as e:\n    print(\"请求失败：\", e)",
     "masked": "import os\nimport requests\nurl = os.environ[\"EXAM_POST_URL\"]\npayload = {\"name\": \"小明\", \"score\": 90}\ntry:\n    response = requests.{{1}}(url, {{2}}=payload, timeout=5)\n    response.raise_for_status()\n    print(\"状态码：\", response.{{3}})\n    result = response.{{4}}()\n    print(\"收到数据：\", result[\"received\"])\nexcept requests.RequestException as e:\n    print(\"请求失败：\", e)",
     "lines": [
       {
@@ -1444,16 +1946,46 @@
         "text": "    print(\"请求失败：\", e)"
       }
     ],
-    "blankCount": 4,
+    "blanks": [
+      {
+        "answers": [
+          "post"
+        ],
+        "hint": "通过 POST 提交数据。",
+        "why": "requests.post 向接口提交内容；本例发给真实的本机 HTTP 接口。",
+        "line": 6
+      },
+      {
+        "answers": [
+          "json"
+        ],
+        "hint": "将字典编码为 JSON 请求正文。",
+        "why": "json=payload 会设置 JSON 正文和相应 Content-Type。",
+        "line": 6
+      },
+      {
+        "answers": [
+          "status_code"
+        ],
+        "hint": "读取 HTTP 响应状态码属性。",
+        "why": "本练习接口返回 201，表示创建成功；成功不只有 200。",
+        "line": 8
+      },
+      {
+        "answers": [
+          "json"
+        ],
+        "hint": "将 JSON 响应解析为 Python 对象。",
+        "why": "response.json() 返回字典，可读取 received。",
+        "line": 9
+      }
+    ],
     "note": "用户指定的补充练习，不属于附件原文。 请求本机临时接口；服务准备代码由系统先执行，可在题目下方查看。",
     "stdin": "",
     "network": false,
+    "setup": "import os as _os, json as _json, threading as _threading\nfrom http.server import BaseHTTPRequestHandler as _Handler, HTTPServer as _Server\nclass _PracticeHandler(_Handler):\n    def do_POST(self):\n        data = _json.loads(self.rfile.read(int(self.headers.get('Content-Length', '0'))))\n        body = _json.dumps({'received': data, 'created': True}, ensure_ascii=False).encode('utf-8')\n        self.send_response(201)\n        self.send_header('Content-Type', 'application/json; charset=utf-8')\n        self.send_header('Content-Length', str(len(body)))\n        self.end_headers()\n        self.wfile.write(body)\n    def log_message(self, *args):\n        pass\n_practice_server = _Server(('127.0.0.1', 0), _PracticeHandler)\n_threading.Thread(target=_practice_server.serve_forever, daemon=True).start()\n_os.environ['EXAM_POST_URL'] = 'http://127.0.0.1:%d/records' % _practice_server.server_port\n",
     "origin": "supplement",
-    "topics": [
-      "post",
-      "json",
-      "status_code"
-    ],
+    "sourceHash": "842e6472776e4a6b73dc6901c05f7ae931cdddcbd0a83dc4b727cc3e330be2ac",
     "learning": {
       "overview": "区分请求的 json= 参数、响应的 json() 方法和 status_code 属性。",
       "flow": "准备字典 → POST JSON → 检查错误状态 → 解析回传内容。",
@@ -1461,6 +1993,11 @@
       "transfer": "把 json= 改为 data= 时请求编码会怎样变化？为什么不能把 201 当作失败？",
       "task": "将给定姓名与分数字典作为 JSON 提交给系统准备的本机接口。检查请求结果，输出状态码和接口回传的数据，出现请求异常时打印提示。",
       "code_comment": "本段代码用于：区分请求的 json= 参数、响应的 json() 方法和 status_code 属性。。执行顺序：准备字典 → POST JSON → 检查错误状态 → 解析回传内容。"
-    }
+    },
+    "topics": [
+      "post",
+      "json",
+      "status_code"
+    ]
   }
 ]

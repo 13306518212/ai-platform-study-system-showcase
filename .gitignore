@@ -9,3 +9,7 @@ Thumbs.db
 # Local generated data
 *.log
 *.jsonl
+
+# Jupyter practical runtime state
+practical/.jupyter-runtime/
+practical/.ipynb_checkpoints/

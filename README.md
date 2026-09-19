@@ -44,6 +44,26 @@
 - **本地优先**：答题记录保存在本机，不依赖在线账号或在线判题服务。
 - **中国区友好**：中文优先说明、Release 下载、SHA256 校验、国内 PyPI 镜像示例和离线理论页面。
 
+## 系统截图
+
+以下截图与 Private 完整训练仓库使用的系统界面保持一致，用于展示理论助手、JupyterLab 实操入口、代码注释和填空提示的实际布局。截图只展示界面和学习流程，不包含个人答题记录。
+
+### 理论学习助手
+
+![理论学习助手](docs/screenshots/theory-assistant.png)
+
+### JupyterLab 实操训练总览
+
+![JupyterLab 实操训练总览](docs/screenshots/practical-jupyterlab.png)
+
+### 代码注释与学习提示
+
+![代码注释与学习提示](docs/screenshots/practical-commented-code.png)
+
+### 填空提示与原生候选
+
+![填空提示与原生候选](docs/screenshots/practical-fill-hints.png)
+
 ## 快速开始
 
 下面的步骤从“下载项目”开始，到“完成第一道题并看到运行结果”为止。第一次使用建议按顺序执行。

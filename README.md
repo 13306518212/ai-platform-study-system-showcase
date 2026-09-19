@@ -9,6 +9,8 @@
 
 这是面向中国大陆用户的本地学习系统，帮助学习者完成“理论理解 → 代码填空 → JupyterLab 运行验证 → 错题复习”的完整学习闭环。公开版包含完整理论学习助手，以及一套题量精简但功能完整的 JupyterLab 实操训练。
 
+如需使用包含全量 70 道实操题的完整训练版本，请阅读 [Issue #1：如何获取 Private 完整训练仓库](https://github.com/13306518212/ai-platform-study-system-showcase/issues/1)，按说明提交访问申请；授权后即可获取 Private 仓库的完整题库和训练文件。
+
 英文说明（辅助）：[README.en.md](README.en.md) · 在线入口：[GitHub Pages](https://13306518212.github.io/ai-platform-study-system-showcase/index.html)
 
 ## <span style="color:#b91c1c"><strong><u>⚠️ 重要提醒（请先阅读） ⚠️</u></strong></span>
@@ -35,6 +37,7 @@
 
 - **理论学习助手**：完整理论题集、知识点说明、单选/多选/判断、随机练习、错题复习和模拟考试。
 - **JupyterLab 实操训练**：公开版包含 13 道题、60 个填空位。
+  如需全量 70 道实操题，请参阅 [Issue #1](https://github.com/13306518212/ai-platform-study-system-showcase/issues/1) 获取 Private 完整训练仓库访问权限。
 - **完整判分链路**：答案等价比较、语法检查、逐空判分、运行结果展示和错误定位。
 - **原生环境练习**：使用 JupyterLab 原生代码单元、Tab 候选和 Output 输出区。
 - **学习记录**：今日练习、专项练习、错题复习、模拟考试、首次答案、独立答题率和复测状态。
